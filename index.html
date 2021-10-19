@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+	<div id="countdown"></div>
+	<script src="https://cdn.jsdelivr.net/gh/truocphan/CountdownTimer/CountdownTimer.js"></script>
+	<script type="text/javascript">
+		var anniversaries = [973702800000, 1606496400000, 1623949200000, 1634490000000];
+		var endTime = (new Date(anniversaries[0]).setYear(new Date().getFullYear()) < new Date().getTime()) ? (new Date(anniversaries[0]).setYear(new Date().getFullYear() + 1)) : (new Date(anniversaries[0]).setYear(new Date().getFullYear()));
+
+		var nowDate = new Date().getDate()
+		var nowMonth = new Date().getMonth() + 1
+
+		for (i in anniversaries){
+			var tmp_endTime = (new Date(anniversaries[i]).setYear(new Date().getFullYear()) < new Date().getTime()) ? (new Date(anniversaries[i]).setYear(new Date().getFullYear() + 1)) : (new Date(anniversaries[i]).setYear(new Date().getFullYear()))
+			if (tmp_endTime < endTime)
+				endTime = tmp_endTime
+		}
+
+		COUNTDOWN(endTime);
+	</script>
+</body>
+</html>
